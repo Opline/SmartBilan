@@ -1,0 +1,224 @@
+[ {
+  "text": "PC",
+  "type": 1,
+  "cr" : [
+    {
+      "text": "Le patient est Consient",
+      "val": false
+    },
+    {
+      "text": "Le patient est Inconsient",
+      "val": true
+    }
+  ],
+  "id": 0,
+  "val": false
+},
+  {
+    "text": "Orienté",
+    "id": 1,
+    "type": 1,
+    "val": true,
+    "cr" : [
+      {
+        "text": "Orienté dans l'espace temps",
+        "val": true
+      },
+      {
+        "text": "Désorienté dans l'espace temps",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Cohérent",
+    "id": 2,
+    "type": 1,
+    "val": true,
+    "cr" : [
+      {
+        "text": "Inconhérent",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Aphasie",
+    "type": 1,
+    "id": 3,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Aphasique",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Somnolent",
+    "id": 4,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Somnolent",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Agitation",
+    "id": 5,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Agité",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Convulsion",
+    "id": 7,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Convulsion",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Vertiges",
+    "id": 8,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Vertiges",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Céphalée",
+    "id": 9,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Céphalée",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Nausée",
+    "id": 10,
+    "type": 1,
+    "val": false,
+    "cr" : [
+      {
+        "text": "Nausée",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Vomis",
+    "id": 11,
+    "val": false,
+    "type": 1,
+    "cr" : [
+      {
+        "text": "Vomis",
+        "val": true
+      }
+    ]
+  },
+  {
+    "text": "Perte urine",
+    "id": 12,
+    "type": 1,
+    "cr" : [
+      {
+        "text": "Perte urinaire",
+        "val": true
+      }
+    ],
+    "val": false
+  },
+  {
+    "text": "Pupille",
+    "id": 6,
+    "type": 4,
+    "sub": [
+      {
+        "text": "Normal",
+        "id": 0,
+        "type": 1,
+        "val": true,
+        "cr" : [
+          {
+            "text": "Normale",
+            "val": true
+          },
+          {
+            "text": "Anormale",
+            "val": false
+          }
+        ]
+      },
+      {
+        "text": "Symétrique",
+        "id": 0,
+        "type": 1,
+        "val": true,
+        "cr" : [
+          {
+            "text": "Asymétrique",
+            "val": false
+          }
+        ]
+      },
+      {
+        "text": "Réactive",
+        "id": 0,
+        "type": 1,
+        "val": true,
+        "cr" : [
+          {
+            "text": "Aréactive",
+            "val": false
+          }
+        ]
+      },
+      {
+        "text": "Myosis",
+        "id": 0,
+        "type": 1,
+        "val": false,
+        "cr" : [
+          {
+            "text": "Myosis",
+            "val": true
+          }
+        ]
+      },
+      {
+        "text": "Mydriase",
+        "id": 0,
+        "type": 1,
+        "val": false,
+        "cr" : [
+          {
+            "text": "Mydriase",
+            "val": true
+          }
+        ]
+      }
+    ]
+  }
+]

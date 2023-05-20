@@ -1,0 +1,56 @@
+{
+  "Intro": {
+    "text": "Compte",
+    "type": 1,
+    "id" : 0,
+    "sub": []
+  },
+  "Bn": {
+    "text": "Bilan Neurologique",
+    "type": 1,
+    "id": 1,
+    "sub": []
+  },
+  "BNT": {
+    "text": "Bilan Neuro-Traumato",
+    "type": 2,
+    "id": 2,
+    "sub": []
+  },
+  "C": {
+    "id": 3,
+    "type": 1,
+    "text": "Chute",
+    "sub": []
+  },
+  "BR": {
+    "type": 1,
+    "id": 4,
+    "text": "Bilan respiratoire",
+    "sub": []
+  },
+  "CA": {
+    "type": 1,
+    "id": 5,
+    "text": "Bilan Cardiologique",
+    "sub": []
+  },
+  "DL": {
+    "type": 1,
+    "id": 6,
+    "text": "Douleur (TILT)",
+    "sub": []
+  },
+  "ATC": {
+    "type": 1,
+    "id": 7,
+    "text": "Antécédents",
+    "sub": []
+  },
+  "TTT": {
+    "type": 1,
+    "id": 8,
+    "text": "Traitement",
+    "sub": []
+  }
+}

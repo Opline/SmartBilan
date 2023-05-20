@@ -1,0 +1,75 @@
+[
+  {
+    "id": 0,
+    "type": 2,
+    "text": "Ambulancier 1",
+    "val": "Robin",
+    "cr": [
+      {
+        "text": "Ambulancier 1",
+        "val": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": 2,
+    "text": "Ambulancier 2",
+    "val": "",
+    "cr": [
+      {
+        "text": "Ambulancier 2",
+        "val": ""
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "type": 2,
+    "text": "Compagnie",
+    "val": "SMA",
+    "cr": [
+      {
+        "text": " ambulancier à",
+        "val": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": 2,
+    "text": "N° de dossier",
+    "val": "404",
+    "cr": [
+      {
+        "text": " pour le dossier ",
+        "val": 0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": 2,
+    "text": "NOM Prenom du patient",
+    "val": "",
+    "cr": [
+      {
+        "text": "Nom et Prenom du patient",
+        "val": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": 15,
+    "constante": true,
+    "text": "Année de naissance du patient",
+    "val": "",
+    "cr": [
+      {
+        "text": "Age du patient",
+        "val": ""
+      }
+    ]
+  }
+]

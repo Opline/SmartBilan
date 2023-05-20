@@ -1,0 +1,92 @@
+[
+      {
+        "id": 0,
+        "type": 15,
+        "text": "Temps",
+        "val": "",
+        "cr": [
+          {
+            "text": "La douleur est présente depuis : ",
+            "val": ""
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 2,
+        "text": "Localisation",
+        "val": "",
+        "cr": [
+          {
+            "text": "Localisation",
+            "val": 0
+          }
+        ]
+      },
+  {
+    "id": 3,
+    "type": 14,
+    "text": "Type",
+    "val": "",
+    "label": "type de douleur",
+    "suby": [
+      {
+        "text": "aïgue",
+        "id": 0,
+        "val": 0
+      },
+      {
+        "text": "constante",
+        "id": 0,
+        "val": 0
+      },
+      {
+        "text": "chronique",
+        "id": 0,
+        "val": 0
+      }
+    ],
+    "cr": [
+      {
+        "text": "Type",
+        "val": 0
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "type": 11,
+    "text": "Intensité",
+    "max": 10,
+    "min": 0,
+    "step": 1,
+    "val": 0,
+    "cr": [
+      {
+        "text": "Aucune douleur",
+        "val": [0, 0],
+        "mesure": ""
+      },
+      {
+        "text": "Douleur faible",
+        "val": [1, 3],
+        "mesure": ""
+      },
+      {
+        "text": "Douleur moyenne",
+        "val": [4, 5],
+        "mesure": ""
+      },
+      {
+        "text": "Douleur sevère ",
+        "val": [6, 8],
+        "mesure": ""
+      },
+      {
+        "text": "Douleur Insupportable ",
+        "val": [9, 10],
+        "mesure": ""
+      }
+    ]
+  }
+]

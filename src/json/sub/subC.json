@@ -1,0 +1,81 @@
+[
+      {
+        "id": 0,
+        "type": 6,
+        "text": "Hateur de la chute",
+        "label": "Hauteur de la chute (mètre)",
+        "max": 100,
+        "min": 0,
+        "val": 0,
+        "cr" : [
+          {
+            "text": "Chute de sa hauteur",
+            "val": [1, 2],
+            "mesure": " m"
+          },
+          {
+            "text": "Chute plus que sa hauteur",
+            "val": [2.1, 100],
+            "mesure": " m"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "type": 1,
+        "text": "Choc violent",
+        "val": false,
+        "cr" : [
+          {
+            "text": "Le choc été violent",
+            "val": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 1,
+        "text": "Malaise",
+        "val": false,
+        "cr" : [
+          {
+            "text": "Il a fait un malaise",
+            "val": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": 1,
+        "text": "Vitesse",
+        "val": false,
+        "cr" : [
+          {
+            "text": "Il y avait de la vitesse",
+            "val": true
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": 1,
+        "text": "De sa Hauteur",
+        "val": false,
+        "cr" : [
+          {
+            "text": "Chute de sa hauteur",
+            "val": true
+          }]
+      },
+      {
+        "id": 5,
+        "type": 1,
+        "text": "Mécanique",
+        "val": false,
+        "cr" : [
+          {
+            "text": "Chute mécanique",
+            "val": true
+          }]
+      }
+    ]

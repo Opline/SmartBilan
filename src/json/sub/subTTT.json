@@ -1,0 +1,14 @@
+[
+  {
+    "text": "Médecin traitant",
+    "id": 0,
+    "val": "",
+    "type": 2
+  },
+  {
+    "text": "Médicament",
+    "id": 1,
+    "val": "",
+    "type": 16
+  }
+]

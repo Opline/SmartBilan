@@ -1,0 +1,67 @@
+[
+  {
+    "id": 0,
+    "type": 14,
+    "text": "Fréquence",
+    "label": "Fréquence d'apparition",
+    "val": "",
+    "suby": [
+      {
+        "text": "Première fois",
+        "id": 0,
+        "val": 0
+      },
+      {
+        "text": "Plusieur fois",
+        "id": 1,
+        "val": 0
+      },
+      {
+        "text": "Chronique",
+        "id": 2,
+        "val": 0
+      }
+    ],
+    "cr": [
+      {
+        "text": "Type",
+        "val": 0
+      }
+    ]
+  },
+  {
+    "text": "Antécédent Familliaux",
+    "type": 1,
+    "cr": [
+      {
+        "text": "Sans antécédent Familliaux",
+        "val": false
+      },
+      {
+        "text": "Il y a des antécédents famillaux",
+        "val": true
+      }
+    ],
+    "id": 1,
+    "val": false
+  },
+  {
+    "text": "Allergie",
+    "id": 2,
+    "val": "",
+    "type": 2
+  },
+  {
+    "id": 0,
+    "type": 15,
+    "text": "Derniere hospitalisation",
+    "val": "",
+    "cr": [
+      {
+        "text": "Temps depuis la derniere hospitalisation : ",
+        "val": ""
+      }
+    ]
+  }
+]
+

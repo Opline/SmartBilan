@@ -1,0 +1,21 @@
+type Bilan = 1
+Type sub =
+1 ==> Boolean
+2 ==> String
+3 ==> Integer
+4 ==> Array
+5 ==> Object
+6 ==> %, res/Minute
+7 ==> Debit
+9 ==> Pa
+10 ==> Glycemie
+11 ==> Cursor
+12 ==> Température
+13 ===> multiChecbox
+14 ==> dropDown
+15 ==> comparaison de temps
+16 ==> medic
+
+
+type Bilan = 2
+1==> tabs

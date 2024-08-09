@@ -1,6 +1,7 @@
 [ {
   "text": "PC",
   "type": 1,
+  "highlight":true,
   "cr" : [
     {
       "text": "Le patient est Consient",
@@ -12,13 +13,14 @@
     }
   ],
   "id": 0,
-  "val": false
+  "val": ""
 },
   {
     "text": "Orienté",
     "id": 1,
+    "highlight":true,
     "type": 1,
-    "val": true,
+    "val": "",
     "cr" : [
       {
         "text": "Orienté dans l'espace temps",
@@ -159,7 +161,7 @@
         "text": "Normal",
         "id": 0,
         "type": 1,
-        "val": true,
+        "val": "",
         "cr" : [
           {
             "text": "Normale",

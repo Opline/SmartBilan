@@ -4,12 +4,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "nodemon ./src/index.js"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "firebase": "^9.20.0",
     "git": "^0.1.5",
+    "openai": "^3.2.1",
     "roboto-fontface": "*",
     "vue": "^3.2.38",
     "vuetify": "^3.0.0",
@@ -17,6 +21,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
+    "nodemon": "^2.0.22",
     "vite": "^3.1.9",
     "vite-plugin-vuetify": "^1.0.0-alpha.12"
   }

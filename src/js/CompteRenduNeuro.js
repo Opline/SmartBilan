@@ -31,8 +31,9 @@ const formatConstantes = (constantes) => {
           const colorC = cr.color ? cr.color : "#808080"
           const mesureC = cr.mesure
           const titleC = constante.text
+          const name = constante.realName
           const labelC = cr.text
-          const obj = {color: colorC, mesure: mesureC, val: parsIntVal, title: titleC, label: labelC}
+          const obj = {color: colorC,name: name, mesure: mesureC, val: parsIntVal, title: titleC, label: labelC}
           constToSend.push(obj)
         }
        break
@@ -42,19 +43,22 @@ const formatConstantes = (constantes) => {
         const parsIntValD = parseInt(constante.val.dias)
         //const regex2 = (resp.val.dias[0] <= parsIntValD && parsIntValD <= resp.val.dias[1])
         const cr = constante.cr.find(resp => resp.val.sys[0] <= parsIntValS && parsIntValS <= resp.val.sys[1])
-        const colorC = cr.color ? cr.color : "#808080"
-        const mesureC = cr.mesure
-        const titleC = constante.text
-        const labelC = cr.text
-        const obj= {color: colorC, mesure: mesureC, val: `${parsIntValS}/${parsIntValD}`, title: titleC, label: labelC}
-        constToSend.push(obj)
+        if (cr) {
+          const colorC = cr.color ? cr.color : "#808080"
+          const name = constante.realName
+          const mesureC = cr.mesure
+          const titleC = constante.text
+          const labelC = cr.text
+          const obj= {color: colorC, name: name, mesure: mesureC, val: `${parsIntValS}/${parsIntValD}`, title: titleC, label: labelC}
+          constToSend.push(obj)
+        }
         break
       }
     }
   })
   return constToSend
 }
-const displayCompteRendu = (obj) => {
+const displayCompteRendu = (obj, bol) => {
   let infoCompteRendu = []
   const arr = [];
   for (const i in obj) {
@@ -63,12 +67,17 @@ const displayCompteRendu = (obj) => {
     }
   }
   arr.forEach(key => {
-    const info = displayNeuro(obj[key], key)
+    const info = displayNeuro(obj[key], key, bol)
     infoCompteRendu.push(info)
   })
-  return infoCompteRendu
+  const filterInfoCompteRendu = infoCompteRendu.filter(el => !isArrayOfEmptyStrings(el.cr));
+  debugger
+  return filterInfoCompteRendu
 }
-const displayNeuro = (infosNeuro, key) => {
+const isArrayOfEmptyStrings = (arr) => {
+  return Array.isArray(arr) && arr.filter(element => element !== '').length === 0;
+}
+const displayNeuro = (infosNeuro, key, bol) => {
   let cr = [];
   const constantes = [];
   const infosSubs = infosNeuro.sub
@@ -77,12 +86,20 @@ const displayNeuro = (infosNeuro, key) => {
     if (infoSub.constante) {
       constantes.push(infoSub)
     }
-    cr.push(displayNeuroBasic(infoSub))
+    cr.push(displayNeuroBasic(infoSub, bol))
   }
   return {cr: cr, type: key, label: infosNeuro.text, constantes: constantes}
 }
 
-const displayMsgType2 = (info) => {
+const displayMsgType2 = (info, bol) => {
+  let val = info.val
+  if (!!val) {
+    return bol ? val : `${info.text}: ${val}`
+  } else {
+    return ""
+  }
+}
+const displayMsgType5 = (info) => {
   let val = info.val
   if (!!val) {
     return `${info.text}: ${val}`
@@ -99,22 +116,31 @@ const displayMsgType6 = (info, resp) => {
   }
 }
 const formatTime = (timeMS) => {
-  const [MS_IN_SEC, SEC_IN_YEAR, SEC_IN_MONTH, SEC_IN_DAY, SEC_IN_HOUR, SEC_IN_MIN] = [1000, 31536000, 2628288, 86400, 3600, 60];
-  let seconds = Math.round(Math.abs(timeMS) / MS_IN_SEC);
-  const years = Math.floor(seconds / SEC_IN_YEAR);
-  seconds = Math.floor(seconds % SEC_IN_YEAR)
-  const months = Math.floor(seconds / SEC_IN_MONTH);
-  seconds = Math.floor(seconds % SEC_IN_MONTH);
-  const days = Math.floor(seconds / SEC_IN_DAY);
-  seconds = Math.floor(seconds % SEC_IN_DAY);
-  const hours = Math.floor(seconds / SEC_IN_HOUR);
-  seconds = Math.floor(seconds % SEC_IN_HOUR);
-  const minutes = Math.floor(seconds / SEC_IN_MIN);
-  seconds = Math.floor(seconds % SEC_IN_MIN);
-  const [aa, mmm, dd, hh, mm, ss] = [years, months, days, hours, minutes, seconds]
-    .map(item => item < 10 ? '0' + item : item.toString());
-  return aa > 0 ? aa + ' ans' : mmm > 0 ? mmm + ' mois et ' + dd + ' jours ' : dd > 0 ? dd + ' jours et ' + hh + ' heures' : hh + ':' + mm + ':' + ss
-}
+  const units = [
+    { label: 'ans', seconds: 31536000 },
+    { label: 'mois', seconds: 2628288 },
+    { label: 'jours', seconds: 86400 },
+    { label: 'heures', seconds: 3600 },
+    { label: 'minutes', seconds: 60 },
+    { label: 'secondes', seconds: 1 },
+  ];
+
+  let seconds = Math.round(Math.abs(timeMS) / 1000);
+  const timeParts = units.map(({ label, seconds: unitSeconds }) => {
+    const value = Math.floor(seconds / unitSeconds);
+    seconds %= unitSeconds;
+    return value > 0 ? `${value} ${label}` : null;
+  }).filter(Boolean);
+
+  if (timeParts.length === 0) return '00:00:00';
+
+  if (timeParts[0].includes('ans')) return timeParts[0];
+  if (timeParts[0].includes('mois')) return timeParts.slice(0, 2).join(' et ');
+
+  return timeParts.length > 1
+    ? `${timeParts[0]} et ${timeParts[1]}`
+    : timeParts.join(':');
+};
 
 const displayMSgType15 = (info, resp) => {
   if (info.val) {
@@ -149,14 +175,14 @@ const displayMsgType9 = (info, resp) => {
   return text
 }
 
-const displayNeuroBasic = (info) => {
+const displayNeuroBasic = (info, bol) => {
   let res = ''
   if (info.sub) {
     let res2 = displayNeuro(info, info.text)
     let cr2 = res2.cr;
     res2 = cr2.filter((el) => el !== '');
     if (res2.length > 0) {
-      res2 = res2.toString().replaceAll(',', ' ')
+      res2 =  res2.toString().replaceAll(',', ' ')
       return `${info.text} ` + res2
     } else {
       return ''
@@ -165,7 +191,10 @@ const displayNeuroBasic = (info) => {
     const cr = info.cr
     switch (info.type) {
       case 2 :
-        res += displayMsgType2(info)
+        res += displayMsgType2(info, bol)
+        break
+      case 5 :
+        res += displayMsgType5(info)
         break
       case 14 :
         res += displayMsgType2(info)

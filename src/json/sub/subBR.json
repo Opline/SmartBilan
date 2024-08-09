@@ -3,9 +3,11 @@
     "id": 0,
     "type": 6,
     "text": "FR",
+    "highlight":true,
     "label": "FR (resp/min)",
+    "realName": "Fréquence Respiratoire",
     "constante": true,
-    "val": 15,
+    "val": "",
     "max": 100,
     "min": 0,
     "cr": [
@@ -40,8 +42,10 @@
     "type": 6,
     "text": "Spo2",
     "label": "Spo2 (%)",
+    "realName": "Saturation",
+    "highlight":true,
     "constante": true,
-    "val": 100,
+    "val": "",
     "cr": [
       {
         "text": "La saturation est normale",

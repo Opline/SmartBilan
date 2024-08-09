@@ -3,6 +3,7 @@
     "id": 0,
     "type": 2,
     "text": "Ambulancier 1",
+    "highlight":true,
     "val": "Robin",
     "cr": [
       {
@@ -15,6 +16,7 @@
     "id": 2,
     "type": 2,
     "text": "Ambulancier 2",
+    "highlight":true,
     "val": "",
     "cr": [
       {
@@ -26,6 +28,7 @@
   {
     "id": 1,
     "type": 2,
+    "highlight":true,
     "text": "Compagnie",
     "val": "SMA",
     "cr": [
@@ -39,6 +42,7 @@
     "id": 3,
     "type": 2,
     "text": "N° de dossier",
+    "highlight":true,
     "val": "404",
     "cr": [
       {
@@ -49,6 +53,7 @@
   },
   {
     "id": 4,
+    "highlight":true,
     "type": 2,
     "text": "NOM Prenom du patient",
     "val": "",
@@ -62,6 +67,7 @@
   {
     "id": 4,
     "type": 15,
+    "highlight":true,
     "constante": true,
     "text": "Année de naissance du patient",
     "val": "",

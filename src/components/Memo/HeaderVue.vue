@@ -13,7 +13,7 @@
       <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
 
-    <v-app-bar-title>Smart Bilan</v-app-bar-title>
+    <v-app-bar-title>Smart Bilan hello world</v-app-bar-title>
 
     <v-spacer></v-spacer>
 

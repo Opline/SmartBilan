@@ -9,24 +9,64 @@ import SubIntro from "@/json/sub/subIntro.json"
 import SubATC from '@/json/sub/subATC.json'
 import SubTTT from "@/json/sub/subTTT.json"
 import Medics from '@/assets/txt/CIS_bdpm.txt'
+import Motifs from '@/json/motifs.json'
+import SubCirc from '@/json/sub/SubCirc.json'
+import SubDig from '@/json/sub/SubDegis.json'
 
-export {initFile}
+export {initFile, getMotifs}
 
+const cisuToInt = (v) => {
+  return parseInt((v.code_CISU.split('.').join('')).slice(1))
+}
+
+const getMotifs = () => {
+  const motifs = JSON.parse(JSON.stringify(Motifs))
+  const orderMotifs = motifs.sort((a, b) => {
+    return cisuToInt(a) - -cisuToInt(b);
+
+  })
+  let ParLab1, ParLab2;
+  const res =   orderMotifs.map(motif => {
+    const code_CISU = motif.code_CISU.split('.')
+    const lengthCode_CISU = code_CISU.length
+    if(motif.LibC === "") {
+      motif.LibC = motif.Lib1
+    }
+    if (lengthCode_CISU === 2) {
+      if (parseInt(code_CISU[1]) === 0) {
+        ParLab1 = motif.Lib1
+      } else {
+        motif.Lib1 = `${ParLab1} ${motif.Lib1}`
+      }
+    }
+    if (lengthCode_CISU === 3) {
+      if (parseInt(code_CISU[2]) === 0) {
+        ParLab2 = motif.Lib1
+      } else {
+        motif.Lib1 = `${ParLab1} ${ParLab2} ${motif.Lib1}`
+      }
+    }
+
+ return motif
+  })
+  return res
+
+}
 const getmedicInfosNames = (medicInfos) => {
   return medicInfos.map(info => info.name)
 }
 const initFile = () => {
   const infoBilan = bilan;
   const medicInfos = readTextFile(Medics);
-  const keyFile = [{id: 'Intro', file: SubIntro}, {id: 'Bn', file: subBn}, {id: 'BNT', file: SubBnt}, {
+  const keyFile = [{id: 'Intro', file: SubIntro}, {id: "Circ", file: SubCirc }, {id: 'Bn', file: subBn}, {id: 'BNT', file: SubBnt}, {
     id: 'C',
     file: SubC
   }, {
     id: "BR",
     file: subBr
   }, {id: "CA", file: SubCA}, {id: 'DL', file: SubDL}, {id: 'ATC', file: SubATC}, {
-    id: "TTT", file: SubTTT
-  }]
+    id: "TTT", file: SubTTT,
+  }, { id :"Dig", file: SubDig}]
   keyFile.forEach(item => findFile(infoBilan, item.id, item.file))
   return {sub: infoBilan, medics: getmedicInfosNames(medicInfos)}
 }

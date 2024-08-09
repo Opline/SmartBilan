@@ -1,0 +1,226 @@
+[{
+  "text": "Douleur à la miction",
+  "type": 1,
+  "highlight":true,
+  "cr" : [
+    {
+      "text": "Pas de de douleur a la miction",
+      "val": false
+    },
+    {
+      "text": "De la douleur a la miction",
+      "val": true
+    }
+  ],
+  "id": 0
+},
+  {
+    "text": "Hématurie",
+    "id": 1,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Hématurie",
+        "val": true
+      },
+      {
+        "text": "Urine de couleur normale",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Anurie",
+    "id": 2,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Anurie",
+        "val": true
+      },
+      {
+        "text": "Urine normale",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Pollakiurie + 7 fois par jour",
+    "id": 3,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Pollakiurie",
+        "val": true
+      },
+      {
+        "text": "Urine normale",
+        "val": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": 6,
+    "text": "Nombre de vomissment",
+    "highlight":true,
+    "label": "Nombre de vomissment",
+    "max": 100,
+    "min": 0,
+    "val": 0,
+    "cr" : [
+      {
+        "text": "Vomissements :",
+        "val": [1, 100],
+        "mesure": ""
+      },
+      {
+        "text": "Vomissement  :",
+        "val": [0, 1],
+        "mesure": ""
+      }
+    ]
+  },
+  {
+    "text": "Ventre dur",
+    "id": 5,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Ventre dur",
+        "val": true
+      },
+      {
+        "text": "Ventre souple",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Ventre gonflé",
+    "id": 6,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Ventre gonflé",
+        "val": true
+      },
+      {
+        "text": "Ventre dépressible",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Aménorhée",
+    "id": 7,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Aménorhée",
+        "val": true
+      },
+      {
+        "text": "Regle normale",
+        "val": false
+      }
+    ]
+  }, {
+  "text": "ménorragie ",
+  "id": 8,
+  "highlight":true,
+  "type": 1,
+  "val": "",
+  "cr" : [
+    {
+      "text": "Regle en cour (ménorragie)",
+      "val": true
+    },
+    {
+      "text": "Pas sur le cycle des regles",
+      "val": false
+    }
+  ]
+},
+  {
+    "text": "métrorragie ",
+    "id": 9,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Métrorragie",
+        "val": true
+      },
+      {
+        "text": "Règle normale",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Rectorragie ",
+    "id": 10,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Rectorragie",
+        "val": true
+      },
+      {
+        "text": "selle normale",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Melena ",
+    "id": 11,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Melena",
+        "val": true
+      },
+      {
+        "text": "Pas de melena",
+        "val": false
+      }
+    ]
+  },
+  {
+    "text": "Vommissment fécaloïde ",
+    "id": 12,
+    "highlight":true,
+    "type": 1,
+    "val": "",
+    "cr" : [
+      {
+        "text": "Vommissment fécaloïde",
+        "val": true
+      },
+      {
+        "text": "Pas de Vommissment fécaloïde",
+        "val": false
+      }
+    ]
+  }
+
+]

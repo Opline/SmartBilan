@@ -5,51 +5,64 @@
     "id" : 0,
     "sub": []
   },
+  "Circ": {
+    "type": 1,
+    "id": 1,
+    "text": "Circonstanciel",
+    "sub": [],
+    "cols": 12
+  },
   "Bn": {
     "text": "Bilan Neurologique",
     "type": 1,
-    "id": 1,
+    "id": 2,
     "sub": []
   },
   "BNT": {
     "text": "Bilan Neuro-Traumato",
     "type": 2,
-    "id": 2,
+    "id": 3,
     "sub": []
   },
   "C": {
-    "id": 3,
+    "id": 4,
     "type": 1,
     "text": "Chute",
     "sub": []
   },
   "BR": {
     "type": 1,
-    "id": 4,
+    "id": 5,
     "text": "Bilan respiratoire",
     "sub": []
   },
   "CA": {
     "type": 1,
-    "id": 5,
+    "id": 6,
     "text": "Bilan Cardiologique",
     "sub": []
   },
   "DL": {
     "type": 1,
-    "id": 6,
+    "id": 7,
     "text": "Douleur (TILT)",
     "sub": []
   },
+  "Dig": {
+  "type": 1,
+  "id": 8,
+  "text": "Bilan digestif",
+    "sub": []
+},
   "ATC": {
     "type": 1,
-    "id": 7,
+    "id": 9,
     "text": "Antécédents",
     "sub": []
   },
   "TTT": {
     "type": 1,
-    "id": 8,
+    "id": 10,
     "text": "Traitement",
     "sub": []
   }

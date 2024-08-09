@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      tabsHHeader: ['', 'Motricité', 'Sensibilité', 'Lésion'],
+      tabsHHeader: ['', 'Motricité', 'Sensibilité', 'Description'],
       tabsVHeader: []
     }
   },

@@ -3,6 +3,7 @@
         "id": 0,
         "type": 6,
         "text": "Hateur de la chute",
+        "highlight":true,
         "label": "Hauteur de la chute (mètre)",
         "max": 100,
         "min": 0,

@@ -1,5 +1,4 @@
 <template>
-  <v-container fluid >
     <div class="cr" v-if="dialogSummary">
       <h3 class="headline">CR Ambulancier</h3>
       <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
@@ -38,7 +37,7 @@
         </ul>
       </div>
     </div>
-    <div v-else>
+    <div class="formvue" v-else>
     <v-row class="fill-height">
       <v-col cols="12">
         <v-card class="overflow-y-auto" style="height: 100%;">
@@ -190,7 +189,6 @@
     </v-dialog>
     </div>
     <!-- Dialog pour afficher le résumé du formulaire -->
-  </v-container>
 </template>
 
 <script>
@@ -326,5 +324,8 @@ export default {
   position: absolute; /* Positionner le bouton si nécessaire */
   bottom: 0;
   pointer-events: auto; /* Assurer que le bouton reste cliquable */
+}
+.formvue{
+  margin-bottom: 40px;
 }
 </style>

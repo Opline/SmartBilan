@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import Formulaire from "@/components/Formulaire.vue";
+import Formulaire from "./Formulaire.vue";
 </script>
 <style>
 

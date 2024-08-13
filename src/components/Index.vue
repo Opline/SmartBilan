@@ -1,9 +1,9 @@
 <template>
-    <Formulaire class="styleMemoIndex"></Formulaire>
+    <FormulaireIndex class="styleMemoIndex"></FormulaireIndex>
 </template>
 
 <script setup>
-import Formulaire from "./Formulaire.vue";
+import FormulaireIndex from "./Formulaire.vue";
 </script>
 <style>
 

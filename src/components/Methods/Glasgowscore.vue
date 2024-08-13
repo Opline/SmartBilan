@@ -56,6 +56,7 @@
 
 <script>
 export default {
+  name: "Glasgowscore",
   props: {
     // Ajoutez ici des props si vous devez recevoir des données du parent
   },

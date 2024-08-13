@@ -58,6 +58,7 @@
 
 <script>
 export default {
+  name: "Melinas",
   data() {
     return {
       valid: false,

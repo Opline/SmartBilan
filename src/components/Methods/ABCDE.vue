@@ -74,6 +74,7 @@
 
 <script>
 export default {
+  name: "ABCDE",
   data() {
     return {
       valid: false,

@@ -102,6 +102,7 @@
 
 <script>
 export default {
+  name: "FastScore",
   data() {
     return {
       // Variables pour les critères FAST

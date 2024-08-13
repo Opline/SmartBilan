@@ -18,6 +18,7 @@
         </ul>
       </div>
       <v-btn  class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
+      <v-btn  class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
     </div>
     <div class="cr" v-if="dialogSummary">
       <h3 class="headline">CR Ambulancier</h3>
@@ -229,6 +230,9 @@ export default {
   },
   components: { Melinas, FastScore, ScoreAPGAR, Glasgowscore, Tilt, ABCDE },
   methods: {
+    imprimerpage() {
+      window.print();
+    },
     handleUpdateDetails(details) {
       // Ajoutez la méthode et les détails associés à addedMethods
       this.addedMethods.push({
@@ -316,5 +320,11 @@ export default {
     position: absolute; /* Positionner le bouton si nécessaire */
   top: 0;
     pointer-events: auto; /* Assurer que le bouton reste cliquable */
+}
+.invisibleBtnBottom{
+  opacity: 0; /* Rendre le bouton transparent */
+  position: absolute; /* Positionner le bouton si nécessaire */
+  bottom: 0;
+  pointer-events: auto; /* Assurer que le bouton reste cliquable */
 }
 </style>

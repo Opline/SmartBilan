@@ -205,14 +205,14 @@ export default {
     return {
       valid: false,
       form: {
-        responsable: "Robin Khalil-Lortie Ambulancier (DEA)",
+        responsable: "Robin Khalil-Lortie Ambulancier à Saint Micheal Ambulance Quint (DEA)",
         antecedents: "",
         allergies: "",
         traitement: "",
         modeVie: "",
         motifMedical: "",
-        anamnese: "",
-        examenClinique: "",
+        anamnese: "Vers h ",
+        examenClinique: "Autres plaintes : Signe de gravité:",
       },
       rules: {
         required: (value) => !!value || "Ce champ est requis.",

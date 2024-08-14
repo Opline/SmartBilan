@@ -1,43 +1,26 @@
 <template>
-    <div class="cr" v-if="dialogSummary">
-      <h3 class="headline">CR Ambulancier</h3>
-      <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
-      <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
-      <p><strong>Allergies:</strong> {{ form.allergies }}</p>
-      <p><strong>Traitement en cours:</strong> {{ form.traitement }}</p>
-      <p><strong>Mode de vie, suivi, souhait:</strong> {{ form.modeVie }}</p>
-      <p><strong>Motif Médical:</strong> {{ form.motifMedical }}</p>
-      <p><strong>Anamnèse:</strong> {{ form.anamnese }}</p>
-      <p><strong>Examen Clinique:</strong> {{ form.examenClinique }}</p>
-      <div v-if="addedMethods.length">
-        <ul>
-          <li v-for="(item, index) in addedMethods" :key="index">
-            <strong>{{ item.method }}:</strong> {{ item.details }}
-          </li>
-        </ul>
-      </div>
-      <v-btn  class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
-      <v-btn  class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
+  <div class="cr" v-if="dialogSummary">
+    <h3 class="headline">CR Ambulancier</h3>
+    <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
+    <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
+    <p><strong>Allergies:</strong> {{ form.allergies }}</p>
+    <p><strong>Traitement en cours:</strong> {{ form.traitement }}</p>
+    <p><strong>Mode de vie, suivi, souhait:</strong> {{ form.modeVie }}</p>
+    <p><strong>Motif Médical:</strong> {{ form.motifMedical }}</p>
+    <p><strong>Anamnèse:</strong> {{ form.anamnese }}</p>
+    <p><strong>Examen Clinique:</strong> {{ form.examenClinique }}</p>
+    <div v-if="addedMethods.length">
+      <ul>
+        <li v-for="(item, index) in addedMethods" :key="index">
+          <strong>{{ item.method }}:</strong> {{ item.details }}
+        </li>
+      </ul>
     </div>
-    <div class="cr" v-if="dialogSummary">
-      <h3 class="headline">CR Ambulancier</h3>
-      <p><strong>Responsable:</strong> {{ form.responsable }}</p>
-      <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
-      <p><strong>Allergies:</strong> {{ form.allergies }}</p>
-      <p><strong>Traitement en cours:</strong> {{ form.traitement }}</p>
-      <p><strong>Mode de vie, suivi, souhait:</strong> {{ form.modeVie }}</p>
-      <p><strong>Motif Médical:</strong> {{ form.motifMedical }}</p>
-      <p><strong>Anamnèse:</strong> {{ form.anamnese }}</p>
-      <p><strong>Examen Clinique:</strong> {{ form.examenClinique }}</p>
-      <div v-if="addedMethods.length">
-        <ul>
-          <li v-for="(item, index) in addedMethods" :key="index">
-            <strong>{{ item.method }}:</strong> {{ item.details }}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="formvue" v-else>
+    <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
+    <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
+  </div>
+
+  <div class="formvue" v-else>
     <v-row class="fill-height">
       <v-col cols="12">
         <v-card class="overflow-y-auto" style="height: 100%;">
@@ -126,7 +109,7 @@
                     <v-col cols="3" class="d-flex align-center">
                       <v-menu>
                         <template v-slot:activator="{ props }">
-                          <v-btn color="primary"  v-bind="props">Ajouter Méthode</v-btn>
+                          <v-btn color="primary" v-bind="props">Ajouter Méthode</v-btn>
                         </template>
                         <v-list>
                           <v-list-item
@@ -138,7 +121,6 @@
                           </v-list-item>
                         </v-list>
                       </v-menu>
-
                     </v-col>
                   </v-row>
 
@@ -161,8 +143,9 @@
 
                 <!-- Boutons d'action -->
                 <v-col cols="12" class="d-flex justify-end">
-                  <v-btn  color="primary" @click="reviewForm">Soumettre</v-btn>
+                  <v-btn color="primary" @click="reviewForm">Soumettre</v-btn>
                   <v-btn color="secondary" @click="resetForm" class="ml-2">Réinitialiser</v-btn>
+                  <v-btn color="secondary" @click="retrieveFromCache" class="ml-2">Récupérer</v-btn>
                 </v-col>
               </v-row>
             </v-form>
@@ -187,8 +170,19 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    </div>
-    <!-- Dialog pour afficher le résumé du formulaire -->
+  </div>
+
+  <!-- Dialog de confirmation -->
+  <v-dialog v-model="confirmDialogVisible" max-width="500">
+    <v-card>
+      <v-card-title class="headline">{{ confirmDialogTitle }}</v-card-title>
+      <v-card-text>{{ confirmDialogMessage }}</v-card-text>
+      <v-card-actions>
+        <v-btn color="secondary" @click="confirmDialogVisible = false">Annuler</v-btn>
+        <v-btn color="primary" @click="confirmAction">Confirmer</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
@@ -199,13 +193,14 @@ import FastScore from "./Methods/FastScore.vue";
 import Glasgowscore from "./Methods/Glasgowscore.vue";
 import Tilt from "./Methods/Tilt.vue";
 import Morse from "./Methods/Morse.vue";
+
 export default {
   name: "FormulaireIndex",
   data() {
     return {
       valid: false,
       form: {
-        responsable: "Robin Khalil-Lortie Ambulancier à Saint Micheal Ambulance Quint (DEA)",
+        responsable: "Robin Lortie Ambulancier (DEA) à SMA Quint",
         antecedents: "",
         allergies: "",
         traitement: "",
@@ -224,7 +219,19 @@ export default {
       dialogSummary: false, // Pour gérer l'affichage de la boîte de dialogue de résumé
       selectedMethod: "", // Méthode sélectionnée
       currentComponent: null, // Composant actuel à afficher dans le dialog
+      confirmDialogVisible: false, // Pour gérer l'affichage du dialogue de confirmation
+      confirmDialogTitle: '', // Titre du dialogue de confirmation
+      confirmDialogMessage: '', // Message du dialogue de confirmation
+      confirmCallback: null, // Callback à exécuter si l'action est confirmée
     };
+  },
+  mounted() {
+    // Ajouter l'événement beforeunload pour sauvegarder les données dans le cache avant de quitter la page
+    window.addEventListener('beforeunload', this.saveToCache);
+  },
+  beforeDestroy() {
+    // Supprimer l'événement beforeunload pour éviter les fuites de mémoire
+    window.removeEventListener('beforeunload', this.saveToCache);
   },
   components: { Melinas, FastScore, ScoreAPGAR, Glasgowscore, Tilt, ABCDE },
   methods: {
@@ -241,21 +248,50 @@ export default {
       this.dialog = false;
     },
     reviewForm() {
-        // Afficher la boîte de dialogue récapitulative
-        this.dialogSummary = true;
+      this.saveToCache();
+      // Afficher la boîte de dialogue récapitulative
+      this.dialogSummary = true;
     },
-    submitForm() {
-      const formData = { ...this.form, methods: this.addedMethods };
-      console.log(formData);
-      alert("Formulaire soumis avec succès !");
-      this.dialogSummary = false; // Fermer le dialogue après la soumission
+    confirmAction() {
+      if (this.confirmCallback) {
+        this.confirmCallback();
+      }
+      this.confirmDialogVisible = false;
+    },
+    confirmBeforeAction(title, message, callback) {
+      this.confirmDialogTitle = title;
+      this.confirmDialogMessage = message;
+      this.confirmCallback = callback;
+      this.confirmDialogVisible = true;
     },
     resetForm() {
-      this.$refs.form.reset();
-      this.valid = false;
-      this.selectedMethod = "";
-      this.currentComponent = null;
-      this.addedMethods = []; // Réinitialiser les méthodes ajoutées
+      this.confirmBeforeAction(
+        'Réinitialiser le formulaire',
+        'Êtes-vous sûr de vouloir réinitialiser le formulaire? Cette action est irréversible.',
+        () => {
+          this.$refs.form.reset();
+          this.valid = false;
+          this.selectedMethod = "";
+          this.currentComponent = null;
+          this.addedMethods = []; // Réinitialiser les méthodes ajoutées
+        }
+      );
+    },
+    retrieveFromCache() {
+      this.confirmBeforeAction(
+        'Récupérer les données du cache',
+        'Êtes-vous sûr de vouloir récupérer les données depuis le cache? Cela écrasera les données actuelles du formulaire.',
+        () => {
+          const cachedData = localStorage.getItem('formData');
+          if (cachedData) {
+            const parsedData = JSON.parse(cachedData);
+            this.form = parsedData;
+            this.addedMethods = parsedData.methods || [];
+          } else {
+            alert("Aucune donnée trouvée dans le cache.");
+          }
+        }
+      );
     },
     openDialog(method) {
       this.selectedMethod = method;
@@ -276,12 +312,12 @@ export default {
         case "Melinas":
           this.currentComponent = Melinas;
           break;
-          case "ABCDE":
-            this.currentComponent = ABCDE;
-            break;
-          case "Morse":
-            this.currentComponent = Morse;
-            break;
+        case "ABCDE":
+          this.currentComponent = ABCDE;
+          break;
+        case "Morse":
+          this.currentComponent = Morse;
+          break;
         default:
           console.warn(`Méthode non reconnue: ${method}`);
           this.currentComponent = null;
@@ -293,6 +329,11 @@ export default {
     },
     removeMethod(index) {
       this.addedMethods.splice(index, 1);
+    },
+    saveToCache() {
+      const formData = { ...this.form, methods: this.addedMethods };
+      // Enregistrer les données du formulaire dans localStorage
+      localStorage.setItem('formData', JSON.stringify(formData));
     },
   },
 };
@@ -314,10 +355,10 @@ export default {
   text-align: center;
 }
 .invisibleBtn{
-    opacity: 0; /* Rendre le bouton transparent */
-    position: absolute; /* Positionner le bouton si nécessaire */
+  opacity: 0; /* Rendre le bouton transparent */
+  position: absolute; /* Positionner le bouton si nécessaire */
   top: 0;
-    pointer-events: auto; /* Assurer que le bouton reste cliquable */
+  pointer-events: auto; /* Assurer que le bouton reste cliquable */
 }
 .invisibleBtnBottom{
   opacity: 0; /* Rendre le bouton transparent */

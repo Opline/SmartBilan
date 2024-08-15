@@ -168,11 +168,10 @@
                 </v-col>
 
                 <!-- Boutons d'action -->
-                <v-col cols="12" class="d-flex justify-end">
+                <v-col cols="12">
                   <v-btn color="primary" @click="reviewForm">Soumettre</v-btn>
                   <v-btn color="secondary" @click="resetForm" class="ml-2">Réinitialiser</v-btn>
                   <v-btn color="secondary" @click="retrieveFromCache" class="ml-2">Récupérer</v-btn>
-                  <v-btn color="secondary" @click="generatePDF">Télécharger le PDF</v-btn>
                 </v-col>
               </v-row>
             </v-form>

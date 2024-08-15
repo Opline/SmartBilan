@@ -1,5 +1,8 @@
 <template>
-  <div class="cr" v-if="dialogSummary">
+  <div v-if="dialogSummary">
+    <v-btn class="dowload" color="secondary" @click="generatePDF"><v-icon left>mdi-download</v-icon></v-btn>
+    <div id="pdf-content">
+  <div class="cr" >
     <h3 class="headline">CR Ambulancier</h3>
     <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
     <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
@@ -19,7 +22,7 @@
     <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
     <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
   </div>
-  <div class="cr" v-if="dialogSummary">
+  <div class="cr">
     <h3 class="headline">CR Ambulancier</h3>
     <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
     <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
@@ -38,6 +41,9 @@
     </div>
     <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
     <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
+  </div>
+    </div>
+
   </div>
 
   <div class="formvue" v-else>
@@ -166,6 +172,7 @@
                   <v-btn color="primary" @click="reviewForm">Soumettre</v-btn>
                   <v-btn color="secondary" @click="resetForm" class="ml-2">Réinitialiser</v-btn>
                   <v-btn color="secondary" @click="retrieveFromCache" class="ml-2">Récupérer</v-btn>
+                  <v-btn color="secondary" @click="generatePDF">Télécharger le PDF</v-btn>
                 </v-col>
               </v-row>
             </v-form>
@@ -206,6 +213,8 @@
 </template>
 
 <script>
+import html2pdf from 'html2pdf.js';
+import 'jspdf-autotable';
 import ABCDE from "./Methods/ABCDE.vue";
 import Melinas from "./Methods/Melinas.vue";
 import ScoreAPGAR from "./Methods/ScoreAPGAR.vue";
@@ -356,6 +365,21 @@ export default {
       // Enregistrer les données du formulaire dans localStorage
       localStorage.setItem('formData', JSON.stringify(formData));
     },
+    generatePDF() {
+      const element = document.getElementById('pdf-content');
+
+      // Options pour html2pdf
+      const options = {
+        margin: [1, 1, .3, 1],  // Réduisez les marges
+        filename: 'CR_Ambulancier.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 1.5 },  // Réduisez l'échelle pour éviter de trop augmenter la taille
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }  // Lettre (8.5 x 11 pouces)
+      };
+
+      // Générer et télécharger le PDF
+      html2pdf().from(element).set(options).save();
+    }
   },
 };
 </script>
@@ -390,4 +414,9 @@ export default {
 .formvue{
   margin-bottom: 40px;
 }
+.dowload{
+  position: absolute;
+  right: 0;
+}
+
 </style>

@@ -22,7 +22,7 @@
     <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
     <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
   </div>
-  <div class="cr">
+  <div class="cr2">
     <h3 class="headline">CR Ambulancier</h3>
     <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
     <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
@@ -369,10 +369,10 @@ export default {
 
       // Options pour html2pdf
       const options = {
-        margin: [1, 1, .3, 1],  // Réduisez les marges
+        margin: 1,  // Réduisez les marges
         filename: 'CR_Ambulancier.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 1.5 },  // Réduisez l'échelle pour éviter de trop augmenter la taille
+        html2canvas: { scale: 2 },  // Réduisez l'échelle pour éviter de trop augmenter la taille
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }  // Lettre (8.5 x 11 pouces)
       };
 
@@ -394,6 +394,9 @@ export default {
 }
 .cr{
   height: 50vh;
+}
+.cr2{
+  max-height: 50vh;
 }
 .headline{
   text-align: center;

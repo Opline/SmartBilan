@@ -19,6 +19,26 @@
     <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
     <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
   </div>
+  <div class="cr" v-if="dialogSummary">
+    <h3 class="headline">CR Ambulancier</h3>
+    <p><strong>Responsable de la prise en charge:</strong> {{ form.responsable }}</p>
+    <p><strong>Antécédents:</strong> {{ form.antecedents }}</p>
+    <p><strong>Allergies:</strong> {{ form.allergies }}</p>
+    <p><strong>Traitement en cours:</strong> {{ form.traitement }}</p>
+    <p><strong>Mode de vie, suivi, souhait:</strong> {{ form.modeVie }}</p>
+    <p><strong>Motif Médical:</strong> {{ form.motifMedical }}</p>
+    <p><strong>Anamnèse:</strong> {{ form.anamnese }}</p>
+    <p><strong>Examen Clinique:</strong> {{ form.examenClinique }}</p>
+    <div v-if="addedMethods.length">
+      <ul>
+        <li v-for="(item, index) in addedMethods" :key="index">
+          <strong>{{ item.method }}:</strong> {{ item.details }}
+        </li>
+      </ul>
+    </div>
+    <v-btn class="invisibleBtn" color="secondary" @click="dialogSummary = false">Annuler</v-btn>
+    <v-btn class="invisibleBtnBottom" color="secondary" @click="imprimerpage">Annuler</v-btn>
+  </div>
 
   <div class="formvue" v-else>
     <v-row class="fill-height">

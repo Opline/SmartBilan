@@ -287,8 +287,9 @@ export default {
     resetForm() {
       this.confirmBeforeAction(
         'Réinitialiser le formulaire',
-        'Êtes-vous sûr de vouloir réinitialiser le formulaire? Cette action est irréversible.',
+        'Êtes-vous sûr de vouloir réinitialiser le formulaire? Cette action est réversible.',
         () => {
+          this.saveToCache();
           this.$refs.form.reset();
           this.valid = false;
           this.selectedMethod = "";

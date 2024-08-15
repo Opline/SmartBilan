@@ -417,7 +417,9 @@ export default {
   margin-bottom: 40px;
 }
 .dowload{
+  opacity: 0;
   position: absolute;
+  pointer-events: auto;
   right: 0;
 }
 

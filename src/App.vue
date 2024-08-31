@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <Index />
+      <mainRoot></mainRoot>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-  import Index from '@/components/Index.vue'
+import mainRoot from "@/components/mainRoot.vue";
 
 </script>
 

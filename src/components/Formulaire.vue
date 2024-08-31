@@ -168,8 +168,8 @@
                 </v-col>
 
                 <!-- Boutons d'action -->
-                <v-col cols="12">
-                  <v-btn color="primary" @click="reviewForm">Soumettre</v-btn>
+                <v-col cols="12" class="d-flex justify-end">
+                  <v-btn color="primary" @click="reviewForm" >Soumettre</v-btn>
                   <v-btn color="secondary" @click="resetForm" class="ml-2">Réinitialiser</v-btn>
                   <v-btn color="secondary" @click="retrieveFromCache" class="ml-2">Récupérer</v-btn>
                 </v-col>
@@ -224,6 +224,23 @@ import Morse from "./Methods/Morse.vue";
 
 export default {
   name: "FormulaireIndex",
+  props: {
+    sharedData: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
+  watch: {
+    sharedData : {
+  immediate: true,
+    handler (newVal) {
+    const infos = JSON.parse(JSON.stringify(newVal))
+      this.form.examenClinique += infos.join(', ');
+}
+}
+
+  },
   data() {
     return {
       valid: false,

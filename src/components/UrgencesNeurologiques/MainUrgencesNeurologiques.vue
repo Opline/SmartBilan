@@ -39,12 +39,11 @@ export default {
     return {
       title: 'Urgences neurologiques',
       forms: [
-        {title: 'Douleur ou inconfort à la poitrine ', component: 'convulsion'},
-        {title: 'Hypertension', component: 'HTA'},
-        {title: 'Insuffisance cardiaque', component: 'IC'},
-        {title: 'Palpitations', component: 'Palpitations'},
-        {title: 'Problèmes vasculaires périphériques bénins', component: 'VascularProblemsBenign'},
-        {title: 'Arythmie commune', component: 'Arythmy'}
+        {title: 'Covulsion ', component: 'convulsion'},
+        {title: 'Général neuro', component: 'GeneralNeuro'},
+        {title: 'WeaknessParalysis', component: 'WeaknessParalysis'},
+        {title: 'headache', component: 'headache'},
+        {title: 'UnconsciousnessSyncope', component: 'UnconsciousnessSyncope'}
       ],
     }
   },

@@ -18,6 +18,8 @@
       <mainUrgencesToxicologiques v-if="formData.includes(10)" @submit-form="handleNewInfos"></mainUrgencesToxicologiques>
       <mainUrgencesHematologiques  v-if="formData.includes(11)" @submit-form="handleNewInfos"></mainUrgencesHematologiques>
       <mainBehaviouralPsychiatric v-if="formData.includes(13)" @submit-form="handleNewInfos"></mainBehaviouralPsychiatric>
+      <mainUrgencesObstetricales v-if="formData.includes(14)" @submit-form="handleNewInfos"></mainUrgencesObstetricales>
+      <mainUrgencesNOnatalesPDiatriques v-if="formData.includes(15)" @submit-form="handleNewInfos"></mainUrgencesNOnatalesPDiatriques>
     </div>
 </template>
 
@@ -34,10 +36,13 @@ import mainBehaviouralPsychiatric from "@/components/BehaviouralPsychiatricDisor
 import mainUrgencesToxicologiques from "@/components/UrgencesToxicologiques/MainUrgencesToxicologiques.vue";
 import mainAbdominalesUrologiques from "@/components/UrgencesAbdominalesUrologiques/MainAbdominalesUrologiques.vue";
 import mainUrgencesGastrointestinales from "@/components/UrgencesGastrointestinales/mainUrgencesGastrointestinales.vue";
+import mainUrgencesObstetricales from "@/components/UrgencesObstetricales/MainUrgencesObstetricales.vue";
+import mainUrgencesNOnatalesPDiatriques
+  from "@/components/UrgencesNéonatalesPédiatriques/MainUrgencesNéonatalesPédiatriques.vue";
 export default {
   name: 'index2',
   components: {
-    SelecteurMotifs,mainUrgencesGastrointestinales,mainUrgencesHematologiques, mainAbdominalesUrologiques,  mainUrgencesToxicologiques, mainBehaviouralPsychiatric, mainUrgResp, MainBurn, mainUrgCardio, mainAllergic, mainUrgencesEndocriniennes, mainUrgencesNeurologiques,
+    SelecteurMotifs, mainUrgencesNOnatalesPDiatriques, mainUrgencesObstetricales, mainUrgencesGastrointestinales,mainUrgencesHematologiques, mainAbdominalesUrologiques,  mainUrgencesToxicologiques, mainBehaviouralPsychiatric, mainUrgResp, MainBurn, mainUrgCardio, mainAllergic, mainUrgencesEndocriniennes, mainUrgencesNeurologiques,
   },
   data() {
     return {
